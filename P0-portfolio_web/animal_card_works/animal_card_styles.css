@@ -1,0 +1,51 @@
+/* 添加 CSS */
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica', 'Arial', sans-serif;   /*不知道示例图片当中的字体，网上查了一下英文网页常用字体，改成了Helvetica*/
+      color: #222;
+    }
+
+    .card {
+      height: 750px;
+      width: 335px;
+      box-shadow: 5px 10px 5px 5px rgba(153,153,153,0.5);/*这个是google来的，请教老师第一个和第二个分别为x轴、y轴，第三、四具体含义是什么。另外，跟在颜色表达式当中的0.5是啥意思？*/
+      border-radius: 4px;
+    }
+
+    .top {
+      height: 8%;
+      border-radius: 4px 4px 0px 0px;
+      border: 1px solid #ddd;
+      padding: 0px 16px;
+    }
+
+    .middle {
+      height: 33%;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      padding: 0px 16px;
+    }
+
+    .container {
+      font-size:13px;
+      text-align: center;
+    }
+
+    .bottom {
+      font-size:13px;
+      height: 59%;
+      border-radius: 0px 0px 4px 4px; /*增加了圆角边框，这个跟示例不一样*/
+      border: 1px solid #ddd;
+      padding: 8px 8px 4px 4px;
+    }
+
+    .list{
+      list-style-type:none;
+      margin:0px;
+    }
+
+  </style>

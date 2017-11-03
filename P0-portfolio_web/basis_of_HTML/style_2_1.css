@@ -1,0 +1,71 @@
+/* This is a CSS comment. Notice that CSS comments are
+enclosed by different characters than HTML comments. */
+/*标题居中*/
+h1 {
+    text-align: center;
+    color: #294860;
+}
+
+/* 正文字体颜色*/
+/*以下配置是从网上找到的中文网页常见字体配置*/
+body {
+    font-family: Georgia, "Times New Roman",
+    "Microsoft YaHei", "微软雅黑",
+    STXihei, "华文细黑",
+    serif;
+}
+
+/*参照示例网页的做法，这里也采用corner-radius，将表框处理成圆角*/
+.note {
+    background-color: #294860;
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+.concept {
+    background-color: #DFEAF1;
+    padding: 4px;
+    margin: 10px;
+    border-radius: 4px;
+    color: black;
+}
+
+.concept-title {
+    font-size: 20px;
+    margin: 8px;
+    text-align: center;
+    color: #294860;
+}
+
+.concept-descripton {
+        font-weight: lighter;
+        margin: 6px;
+}
+
+/* 英文不够好，又想一边写code，一边把注释写下来，
+总是在中英文切换，所以很容易就出错了。*/
+.aligncenter {
+    width: 400px;
+    height: 200px;
+    border: 0px;
+
+    clear: both;
+    display: block;
+    margin:auto;
+}
+
+.italic {
+    font-style: italic;
+}
+
+
+
+/* CSS allows you to give your page style (colors, shapes, fonts, etc.)
+You can apply CSS elements to entire HTML classes. Review Lesson 1.3
+if you need a refresher about how to do this. */
