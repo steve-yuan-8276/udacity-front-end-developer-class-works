@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cat-click-stage-2</title>
+    <style media="screen">
+        html {
+          font-size: 100%;
+          overflow-y: scroll;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          -ms-text-size-adjust: 100%;
+          -webkit-text-size-adjust: none;
+        }
+        .img-box {
+            height: 400px;
+            width: 600px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <p id="count">点击次数：</p>
+        <img id="cat-pop" class="img-box" src="img/cat-pop.jpg" alt="cat-pop">
+        <img id="cat-blue" class="img-box" src="img/cat-blue.jpg" alt="cat-blue">
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var i = {}; //一个map
+            var countNumber = function(name) {
+                 /* Act on the event */
+                if(null == i[name]){ //初始化
+                 i[name] = 1;
+                }else{
+                 i[name]++;
+                }
+                console.log(i);
+                $(name).closest('#div1').find('p').text(name +'点击次数:' + i[name]);
+            };
+
+            $('#cat-pop').on('click', function(event) {
+             event.preventDefault();
+                countNumber("#cat-pop");
+            });
+
+            $('#cat-blue').on('click', function() {
+             event.preventDefault();
+                countNumber("#cat-blue");
+            });
+        });
+    </script>
+</body>
+</html>
