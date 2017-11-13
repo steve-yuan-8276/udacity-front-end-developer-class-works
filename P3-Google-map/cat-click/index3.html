@@ -8,78 +8,96 @@
         html {
           font-size: 100%;
           overflow-y: scroll;
-          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          -webkit-tap-highbuttonght-color: rgba(0,0,0,0);
           -ms-text-size-adjust: 100%;
           -webkit-text-size-adjust: none;
         }
 
-        #img-box {
+        .img-box {
             height: 400px;
             width: 600px;
-            text-align: center;
             border: 1px solid black;
         }
 
-        #btn-area {
-            height: 100px;
-            width: 600px;
+        .btn {
+            width: 80px;
+            height: 40px;
             text-align: center;
+            margin: auto;
+            font-size: 16px;
         }
 
+        h2 {
+            font-size: 16px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
     </style>
     <title>cat-click-premium</title>
 </head>
 <body>
     <div id="div1">
+        <ul id="cat-list">
+            <button class="btn highlight ">blue</button>
+            <button class="btn">grief</button>
+            <button class="btn">jack</button>
+            <button class="btn">pop</button>
+            <button class="btn">tiger</button>
+        </ul>
         <div>
-            <div id="cat-count"></div>
-            <img id="img-box" src="img/cat-blue.jpg">
-        </div>
-        <div id="btn-area">
-            <button id="btn-pre">上一张</button>
-            <button id="btn-next">下一张</button>
+            <h2>cat-name：blue</h2>
+            <p>click-number:</p>
+            <img class="img-box" src="img/cat-blue.jpg">
         </div>
     </div>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script>
-        //有bug，以后慢慢修
         $(document).ready(function() {
-            //点击上一页或者写一页切换图片
-            var images = [
-                "img/cat-blue.jpg",
-                "img/cat-grief.jpg",
-                "img/cat-jack.jpeg",
-                "img/cat-pop.jpg",
-                "img/cat-tiger.jpg",
+            var cats = [
+                {
+                    name: "blue",
+    				pic: "img/cat-blue.jpg",
+    				clicks: 0
+                },
+                {
+                    name: "grief",
+    				pic: "img/cat-grief.jpg",
+    				clicks: 0
+                },
+                {
+                    name: "jack",
+    				pic: "img/cat-jack.jpeg",
+    				clicks: 0
+                },
+                {
+                    name: "pop",
+    				pic: "img/cat-pop.jpg",
+    				clicks: 0
+                },{
+                    name: "tiger",
+    				pic: "img/cat-tiger.jpg",
+    				clicks: 0
+                },
             ];
 
-            var index = 0;
-            var len = images.length;
-            //点击 下一张
-            $('#btn-next').on('click', function() {
-                index++;
-                if (index == len) {
-                    index = 0;
-                 }
-                 $('img-box').attr("src", images[index]);
-            });
-            //点击 上一张
-            $('#btn-pre').on('click', function() {
-                index--;
-                if (index = -1) {
-                    index = len - 1;
-                 }
-                 $('img-box').attr("src", images[index]);
+            //点击button高亮，并显示相应图片
+            /*
+
+            */
+
+            $('.btn').on('click',function(event) {
+                $('.btn').removeClass('highlight');
+                $(this).addClass('highlight');
+                var index = $('.btn').index(this);
+                var name = cats[index].name;
+                var pic = cats[index].pic;
+                var click = cats[index].clicks;
+                $('h2').text('cat-name: ' + name);
+                $('img').attr('src', pic);
             });
 
-            //点击图片统计次数
-            i = 0;
-            $(this).on('click', function(event) {
-                event.preventDefault();
-                /* Act on the event */
-                i++;
-                $(this).closest('#div1').find('p').text('点击次数:' + i);
-            });
         });
     </script>
 </body>
