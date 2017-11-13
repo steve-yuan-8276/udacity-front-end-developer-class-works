@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style media="screen">
+        html {
+          font-size: 100%;
+          overflow-y: scroll;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          -ms-text-size-adjust: 100%;
+          -webkit-text-size-adjust: none;
+        }
+
+        #img-box {
+            height: 400px;
+            width: 600px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        #btn-area {
+            height: 100px;
+            width: 600px;
+            text-align: center;
+        }
+
+    </style>
+    <title>cat-click-premium</title>
+</head>
+<body>
+    <div id="div1">
+        <div>
+            <div id="cat-count"></div>
+            <img id="img-box" src="img/cat-blue.jpg">
+        </div>
+        <div id="btn-area">
+            <button id="btn-pre">上一张</button>
+            <button id="btn-next">下一张</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        //有bug，以后慢慢修
+        $(document).ready(function() {
+            //点击上一页或者写一页切换图片
+            var images = [
+                "img/cat-blue.jpg",
+                "img/cat-grief.jpg",
+                "img/cat-jack.jpeg",
+                "img/cat-pop.jpg",
+                "img/cat-tiger.jpg",
+            ];
+
+            var index = 0;
+            var len = images.length;
+            //点击 下一张
+            $('#btn-next').on('click', function() {
+                index++;
+                if (index == len) {
+                    index = 0;
+                 }
+                 $('img-box').attr("src", images[index]);
+            });
+            //点击 上一张
+            $('#btn-pre').on('click', function() {
+                index--;
+                if (index = -1) {
+                    index = len - 1;
+                 }
+                 $('img-box').attr("src", images[index]);
+            });
+
+            //点击图片统计次数
+            i = 0;
+            $(this).on('click', function(event) {
+                event.preventDefault();
+                /* Act on the event */
+                i++;
+                $(this).closest('#div1').find('p').text('点击次数:' + i);
+            });
+        });
+    </script>
+</body>
+</html>
