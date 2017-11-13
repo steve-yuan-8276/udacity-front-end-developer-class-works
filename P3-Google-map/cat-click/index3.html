@@ -46,7 +46,7 @@
             <button class="btn">pop</button>
             <button class="btn">tiger</button>
         </ul>
-        <div>
+        <div id="cat">
             <h2>cat-name：blue</h2>
             <p>click-number:</p>
             <img class="img-box" src="img/cat-blue.jpg">
@@ -59,45 +59,43 @@
                 {
                     name: "blue",
     				pic: "img/cat-blue.jpg",
-    				clicks: 0
                 },
                 {
                     name: "grief",
     				pic: "img/cat-grief.jpg",
-    				clicks: 0
                 },
                 {
                     name: "jack",
     				pic: "img/cat-jack.jpeg",
-    				clicks: 0
                 },
                 {
                     name: "pop",
     				pic: "img/cat-pop.jpg",
-    				clicks: 0
                 },{
                     name: "tiger",
     				pic: "img/cat-tiger.jpg",
-    				clicks: 0
                 },
             ];
 
             //点击button高亮，并显示相应图片
-            /*
-
-            */
-
             $('.btn').on('click',function(event) {
                 $('.btn').removeClass('highlight');
                 $(this).addClass('highlight');
                 var index = $('.btn').index(this);
                 var name = cats[index].name;
                 var pic = cats[index].pic;
-                var click = cats[index].clicks;
                 $('h2').text('cat-name: ' + name);
                 $('img').attr('src', pic);
             });
 
+            //点击图片，计算点击次数并显示
+            var i = 0;
+            $('.img-box').on('click', function(event) {
+                event.preventDefault();
+                /* Act on the event */
+                i++;
+                $(this).closest('#cat').find('p').text('click-number: ' + i);
+            });
         });
     </script>
 </body>
