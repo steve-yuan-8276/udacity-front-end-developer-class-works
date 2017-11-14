@@ -47,9 +47,9 @@
             <button class="btn">tiger</button>
         </ul>
         <div id="cat">
-            <h2>cat-name：blue</h2>
-            <p>click-number:</p>
-            <img class="img-box" src="img/cat-blue.jpg">
+            <h2>cat-name：<span></span></h2>
+            <p>clicks-number: <span></span></p>
+            <img class="img-box" src="img/cat-blue.jpg" alt="blue">
         </div>
     </div>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -59,43 +59,66 @@
                 {
                     name: "blue",
     				pic: "img/cat-blue.jpg",
+                    clicks: 0,
                 },
                 {
                     name: "grief",
     				pic: "img/cat-grief.jpg",
+                    clicks: 0,
                 },
                 {
                     name: "jack",
     				pic: "img/cat-jack.jpeg",
+                    clicks: 0,
                 },
                 {
                     name: "pop",
     				pic: "img/cat-pop.jpg",
-                },{
+                    clicks: 0,
+                },
+                {
                     name: "tiger",
     				pic: "img/cat-tiger.jpg",
+                    clicks: 0,
                 },
             ];
 
             //点击button高亮，并显示相应图片
+            var index = $('.btn').index(this);
             $('.btn').on('click',function(event) {
                 $('.btn').removeClass('highlight');
                 $(this).addClass('highlight');
                 var index = $('.btn').index(this);
                 var name = cats[index].name;
+                var count = cats[index].clicks;
                 var pic = cats[index].pic;
-                $('h2').text('cat-name: ' + name);
+                $('h2 > span').text(name);
+                $('p > span').text(count);
                 $('img').attr('src', pic);
+
             });
 
             //点击图片，计算点击次数并显示
-            var i = 0;
+            var i = {}; //一个map
+            var countNumber = function(name) {
+                if(null == i[name]){ //初始化
+                 i[name] = 1;
+                }else{
+                 i[name]++;
+                }
+                console.log(i);
+                //错误提示：Syntax error, unrecognized expression: img/cat-blue.jpg
+                //错误分析：name若是用图片地址赋值，那么$(name)捕获不到DOM对象
+                //$(name).closest('#cat').find('p > span').text(i[name]);
+                $("#cat").find('p > span').text(i[name]);
+            };
+
             $('.img-box').on('click', function(event) {
                 event.preventDefault();
                 /* Act on the event */
-                i++;
-                $(this).closest('#cat').find('p').text('click-number: ' + i);
+                countNumber($(this).attr('src'));
             });
+
         });
     </script>
 </body>
