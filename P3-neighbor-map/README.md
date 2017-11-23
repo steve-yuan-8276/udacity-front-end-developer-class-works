@@ -4,17 +4,17 @@
 你将开发一个具有你所在区域或想访问的区域的地图的单页应用程序。你将为此地图添加其他功能，包括突出显示的地点、有关这些地点的第三方数据以及浏览内容的不同方式。
 
 ## API
-1. Google Maps API
+1. [Google Maps API](https://developers.google.com/maps/)
 
-2. Foursquare place API
+2. [Foursquare place API](https://developer.foursquare.com/)
 
 ## 前端框架
 
-1.  Bootstrap
+1.  [Bootstrap](https://getbootstrap.com/)
 
-2. knockout
+2. [knockout](http://knockoutjs.com/)
 
-3. Jquery
+3. [Jquery](https://jquery.com/)
 
 ## Code文档
 ### HTML
