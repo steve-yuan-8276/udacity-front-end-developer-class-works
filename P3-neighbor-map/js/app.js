@@ -21,22 +21,23 @@ function AppViewModel() {
             var apiUrl = 'https://api.foursquare.com/v2/venues/search?ll=' +
                 marker.lat + ',' + marker.lng + '&client_id=' + clientID +
                 '&client_secret=' + clientSecret + '&query=' + marker.title +
-                '&v=20170708' + '&m=foursquare';
+                '&v=20170801' + '&m=foursquare';
             // Foursquare API
             $.getJSON(apiUrl).done(function(marker) {
                 var response = marker.response.venues[0];
+                self.zip = esponse.location.postalCode;
                 self.street = response.location.formattedAddress[0];
                 self.city = response.location.formattedAddress[1];
                 self.country = response.location.formattedAddress[3];
                 self.category = response.categories[0].shortName;
-                //self.photo = response.photos[1].photourl;
+
 
                 self.htmlContentFoursquare =
                     '<h5 class="iw_subtitle">(' + self.category + ')</h5>' +
                     '<div>' +
-
-                    //'<img src= self.photo>' +
+                    '<img src= self.photo height="100" width="200">' +
                     '<h6 class="iw_address_title"> Address: </h6>' +
+                    '<p class="iw_address">' + self.zip + '</p>' +
                     '<p class="iw_address">' + self.street + '</p>' +
                     '<p class="iw_address">' + self.city + '</p>' +
                     '<p class="iw_address">' + self.country + '</p>' +

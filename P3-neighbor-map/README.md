@@ -28,6 +28,24 @@
 ### CSS
 - mapStyles.css： 自定义样式
 
+## Bugs fix
+[json解析](https://www.json.cn/)
+
+### 第一步：请求代码
+
+```
+curl -X GET -G \
+  'https://api.foursquare.com/v2/venues/explore' \
+    -d client_id="CLIENT_ID" \
+    -d client_secret="CLIENT_SECRET" \
+    -d v="20170801" \
+    -d ll="40.7243,-74.0018" \
+    -d query="coffee" \
+    -d limit=1
+```    
+###     第二步：
+将respinse记过放到https://www.json.cn/ 进行解析
+
 ## 相关资源
 
 1. [Bootstrap中文教程](http://www.bootcss.com/)
