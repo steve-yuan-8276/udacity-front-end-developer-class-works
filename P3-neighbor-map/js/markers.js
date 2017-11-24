@@ -1,5 +1,5 @@
 //定义景点位置信息
-var myLocations = [
+const myLocations = [
     {
         title: '天安门（Tiananmen Square）',
         lat: 39.90872,
