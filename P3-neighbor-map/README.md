@@ -3,6 +3,11 @@
 ## 项目概述
 你将开发一个具有你所在区域或想访问的区域的地图的单页应用程序。你将为此地图添加其他功能，包括突出显示的地点、有关这些地点的第三方数据以及浏览内容的不同方式。
 
+## 安装使用
+1.  访问网址： https://steve-yuan-8276.github.io/
+
+2. 请将本项目的文件夹git clone到本地后，双击 index.html
+
 ## API
 1. [Google Maps API](https://developers.google.com/maps/)
 
@@ -44,7 +49,7 @@ curl -X GET -G \
     -d limit=1
 ```    
 ###     第二步：
-将respinse记过放到https://www.json.cn/ 进行解析
+将response记过放到https://www.json.cn/ 进行解析
 
 ## 相关资源
 
@@ -57,6 +62,8 @@ curl -X GET -G \
 4.  [knockout官方文档-English](http://knockoutjs.com/documentation/introduction.html)
 
 5.  [Foursquare官网文档](https://developer.foursquare.com/docs/api/getting-started)
+
+6. [如何启用github.io](https://pages.github.com/)
 
 
 
