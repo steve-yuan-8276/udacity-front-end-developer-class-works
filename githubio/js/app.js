@@ -1,5 +1,7 @@
 // Global Variables
-let map, clientID, clientSecret;
+let map;
+let clientID = "MAFEGHOG3CCWFPDQLZFDVZ4I52SBTZH1IAUDSTCGIVLG3UTK";
+let clientSecret = "SU0IVSZEPOJGDK1VKOY1524VHR2UYKFYF5OBYJPTOH0J3SWF";
 
 function AppViewModel() {
     var self = this;
@@ -14,9 +16,9 @@ function AppViewModel() {
             infowindow.setContent('');
             infowindow.marker = marker;
             // Foursquare API Client
-            clientID = "MAFEGHOG3CCWFPDQLZFDVZ4I52SBTZH1IAUDSTCGIVLG3UTK";
-            clientSecret =
-                "SU0IVSZEPOJGDK1VKOY1524VHR2UYKFYF5OBYJPTOH0J3SWF";
+            //clientID = "MAFEGHOG3CCWFPDQLZFDVZ4I52SBTZH1IAUDSTCGIVLG3UTK";
+            //clientSecret =
+            //    "SU0IVSZEPOJGDK1VKOY1524VHR2UYKFYF5OBYJPTOH0J3SWF";
             // URL for Foursquare API
             var apiUrl = 'https://api.foursquare.com/v2/venues/search?ll=' +
                 marker.lat + ',' + marker.lng + '&client_id=' + clientID +
@@ -33,7 +35,16 @@ function AppViewModel() {
 
 
                 self.htmlContentFoursquare =
-                    '<h5 class="iw_subtitle">(' + self.category + ')</h5>' +
+                    //字符串模版
+                    `<h5 class="iw_subtitle">(${self.category})</h5>
+                    <div>
+                    <h6 class="iw_address_title"> Address: </h6>
+                    <p class="iw_address">${self.zip}</p>
+                    <p class="iw_address">${self.street}</p>
+                    <p class="iw_address">${self.city}</p>
+                    <p class="iw_address">${self.country}</p>
+                    </div>`;
+                    /*'<h5 class="iw_subtitle">(' + self.category + ')</h5>' +
                     '<div>' +
                     '<h6 class="iw_address_title"> Address: </h6>' +
                     '<p class="iw_address">' + self.zip + '</p>' +
@@ -41,6 +52,7 @@ function AppViewModel() {
                     '<p class="iw_address">' + self.city + '</p>' +
                     '<p class="iw_address">' + self.country + '</p>' +
                     '</div>';
+                    */
 
                 infowindow.setContent(self.htmlContent + self.htmlContentFoursquare);
             }).fail(function() {
