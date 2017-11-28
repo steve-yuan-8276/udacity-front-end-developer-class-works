@@ -10,11 +10,12 @@
 ###  [P3-neighbor-map](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P3-neighbor-map)
 
 ### [P4-feed-reader-test](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P4-feed-reader-test)
-**(还没做完)**
+**(P4 课程作业)**
 
 ### [practice folder](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/Practice-folder)
 
 -  [cat-click](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P3-Google-map/cat-click)
+
 -  [todolist](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/Practice-folder/todolist)
 
 
