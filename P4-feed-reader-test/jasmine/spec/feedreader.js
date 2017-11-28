@@ -25,12 +25,15 @@ $(function() {
         /* TODO:
          * 编写一个测试遍历 allFeeds 对象里面的所有的源来保证有链接字段而且链接不是空的。
          */
-        it('allFeeds has a link and link are not empty',function() {
-            //不会写正则表达式，这是http://tool.oschina.net/regex#生成的
-            var urlRegularExpression = [a-zA-z]+://[^\s]*;
-            for (var i = 0; i < allFeeds.length; i++) {
+        it('allFeeds has url and url are not empty',function() {
+             //检查链接是否存在，并且是否匹配网址url的正则表达式
+             //目前还不会正则，这里使用正则表达式在线生成工具生成的
+             //http://tools.jb51.net/regex/create_reg
+            var urlPattern = /^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+/;
+            for(var i = 0; i < allFeeds.length; i++) {
+                //alert(allFeeds[0].url);
                 expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url).not.toMath(urlRegularExpression);
+                expect(allFeeds[i].url).toMatch(urlPattern);
             }
         });
 
@@ -38,43 +41,51 @@ $(function() {
         /* TODO:
          * 编写一个测试遍历 allFeeds 对象里面的所有的源来保证有名字字段而且不是空的。
          */
-         it('allFeeds name are not empty', function() {
-             for (var i = 0; i < allFeeds.length; i++) {
+        it('allFeeds has name and name are not empty', function() {
+            for (var i = 0; i < allFeeds.length; i++) {
+                //alert(allFeeds[i].name);
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name).not.toBe('');
-             }
-
-         });
+            }
+        });
     });
 
 
     /* TODO: 写一个叫做 "The menu" 的测试用例 */
     describe('The menu', function() {
-        var body = $('#body');
-        var menuIcon = $('.menu-icon-link');
+    var body = $('#body');
+    var menuIcon = $('.menu-icon-link');
 
         /* TODO:
          * 写一个测试用例保证菜单元素默认是隐藏的。你需要分析 html 和 css
          * 来搞清楚我们是怎么实现隐藏/展示菜单元素的。
          */
-        it('menu should be hidden',function() {
-            expect(body.hasClass('.menu-hidden')).toBe(true);
+        it('menu should be hidden default', function() {
+            //#body有一个menu-hidden的class，采用transform3d的方法来控制隐藏；
+            //其中包括三个函数，分别代表x轴、y轴、Z轴坐标；
+            //transform: translate3d(-12em, 0, 0）；表示x轴向左移动12em（192px）
+            //transition: transform 0.2s; 表示变化在0.2秒内完成
+            //app.js文档中默认点击行为发生；
+            expect($('.menu-hidden').is(':visible')).toBe(true);
         });
+
          /* TODO:
           * 写一个测试用例保证当菜单图标被点击的时候菜单会切换可见状态。这个
-          * 测试应该包含两个 expectation ： 当点击图标的时候菜单是否显示，
+          * 测试应该包含两个 expectation ： 党点击图标的时候菜单是否显示，
           * 再次点击的时候是否隐藏。
           */
-        it('menu can switch status', function() {
+        it('when menuIcon click memu show', function() {
             menuIcon.trigger('click');
-            expect(body.hasClass('.menu-hidden')).toBe(false);
-
-            menuIcon.trigger('click');
-            expect(body.hasClass('.menu-hidden')).toBe(true);
+            expect($('.menu-hidden').is(':visible')).toBe(false);
         });
-         
+
+        it('when menuIcon click again memu hide', function() {
+            menuIcon.trigger('click');
+            expect($('.menu-hidden').is(':visible')).toBe(true);
+        });
     });
     /* TODO: 13. 写一个叫做 "Initial Entries" 的测试用例 */
+    describe('Initial Entries', function() {
 
         /* TODO:
          * 写一个测试保证 loadFeed 函数被调用而且工作正常，即在 .feed 容器元素
@@ -83,11 +94,29 @@ $(function() {
          * 记住 loadFeed() 函数是异步的所以这个而是应该使用 Jasmine 的 beforeEach
          * 和异步的 done() 函数。
          */
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
 
+        it('loadFeed can call and greater than 0', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
+        });
+    });
     /* TODO: 写一个叫做 "New Feed Selection" 的测试用例 */
+    describe('New Feed Selection', function() {
 
         /* TODO:
          * 写一个测试保证当用 loadFeed 函数加载一个新源的时候内容会真的改变。
          * 记住，loadFeed() 函数是异步的。
          */
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                newFeed = $('.feed').html();
+                loadFeed(1,done);
+            });
+        });
+        it('newfeed should not equal to the previous', function() {
+            expect($('.feed').html).not.toEqual(newFeed);
+        });
+    });
 }());
