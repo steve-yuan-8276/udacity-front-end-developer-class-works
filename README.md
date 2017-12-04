@@ -3,7 +3,7 @@
 这是参加Udacity前端进阶课程的作业集，具体包括：
 ### [P0-portfolio_web](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P0-portfolio_web)
 
-同时也是[个人简历](),欢迎骚扰
+同时也是[个人简历](https://steve-yuan-8276.github.io/),欢迎骚扰
 
 ###  [P1-gameClone](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P1-gameClone)
 
