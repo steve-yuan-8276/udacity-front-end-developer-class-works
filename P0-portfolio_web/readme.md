@@ -1,7 +1,14 @@
-# Udacity Front-end Nonodegree - Project 1
-## Udacity Portfolio Site
+# Portfolio Site
 
-This project is the first project of the Udacity Front-end Nonodegree Program. It is a portfolio featuring responsive design page.
+
+这既是参加Udacity前端进阶课程的第一个项目，同时也是个人简历，主要包括以下几部分：
+
+* 基本情况
+* 参与项目
+* 个人作品
+
+个人对编程很感兴趣，希望能够转行互联网企业。如您感兴趣，请联系我：yuanf02@gmail.com
+
 
 
 
