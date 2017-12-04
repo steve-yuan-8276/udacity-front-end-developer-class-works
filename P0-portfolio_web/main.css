@@ -137,9 +137,14 @@
     margin: 0.5em 0 0 0.6em;
 }
 
-.book-margin{
+.book-margin {
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.works-img {
+    width: 500px;
+    height: 360px;
 }
 
 /*card-setting*/
