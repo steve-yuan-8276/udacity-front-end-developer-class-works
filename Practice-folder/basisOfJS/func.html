@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .original {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .change {
+            width: 150px;
+            height: 150px;
+            background: #ccc;
+        }
+
+    </style>
+    <title>function</title>
+</head>
+<body>
+    <input type="button" value="Wider" />
+    <input type="button" value="Higher" />
+    <input type="button" value="toGreen" />
+    <input type="button" value="同时改变高宽颜色" />
+    <div id ='div1' class = 'original'>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var aBtn = document.getElementsByTagName('input');
+        var oDiv = document.getElementById('div1');
+
+        aBtn[0].onclick = function() {
+            oDiv.style.width = '200px';
+        }
+
+        aBtn[1].onclick = function() {
+            oDiv.style.height = '200px';
+        }
+
+        aBtn[2].onclick = function() {
+            oDiv.style.background = 'green';
+        }
+
+        aBtn[3].onclick = function() {
+            oDiv.setAttribute("class", "change");
+        }
+    }
+
+    </script>
+</body>
+</html>

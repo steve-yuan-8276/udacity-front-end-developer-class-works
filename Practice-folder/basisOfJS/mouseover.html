@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style media="screen">
+        #div1 {
+            width: 200px;
+            }
+        #div2 {
+            width:200px;
+            height:100px;
+            background-color: gray;
+            color: white;
+            display:none;
+            }
+    </style>
+    <title>mouseover</title>
+</head>
+<body>
+    <div id="div1">
+        <input type="checkbox"/> 两周内免登录
+    </div>
+    <div id="div2">
+        <p>为了您的安全，请勿在公共场合使用此功能。</p>
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oDiv1 = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+
+            oDiv1.onmouseover = function() {
+                oDiv2.style.display = 'block';
+            }
+
+            oDiv1.onmouseout = function() {
+                oDiv2.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
