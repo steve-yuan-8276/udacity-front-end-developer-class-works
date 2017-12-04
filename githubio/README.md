@@ -1,6 +1,7 @@
 # Portfolio Site
 
 请访问：[https://steve-yuan-8276.github.io/](https://steve-yuan-8276.github.io/)
+
 这既是参加Udacity前端进阶课程的第一个项目，同时也是个人简历，主要包括以下几部分：
 
 * 基本情况
