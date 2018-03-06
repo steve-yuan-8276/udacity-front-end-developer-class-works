@@ -41,7 +41,7 @@
 React 课程的第一期作业，基于ReactJS+React-Router开发的Web应用。
 
 ##### 效果预览
-![](https://lh3.googleusercontent.com/-guabVG1T7hU/Wp45x9iwkBI/AAAAAAABhBI/hMG7z-FRlwYtcKo7sE7ubNxTDFDnPst3wCHMYCw/I/15203189150769.jpg)
+[![](https://lh3.googleusercontent.com/-guabVG1T7hU/Wp45x9iwkBI/AAAAAAABhBI/hMG7z-FRlwYtcKo7sE7ubNxTDFDnPst3wCHMYCw/I/15203189150769.jpg)](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P5-myreads)
 
 [Source code](https://github.com/steve-yuan-8276/udacity-front-end-developer-class-works/tree/master/P5-myreads)
 
